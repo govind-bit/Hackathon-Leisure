@@ -11,7 +11,6 @@ function App() {
   const myStorage = window.localStorage;
   const [currentUsername, setCurrentUsername] = useState(myStorage.getItem("user"));
   const [pins, setPins] = useState([]);
-  const itemsPin = pins.split(',');
   const [currentPlaceId, setCurrentPlaceId] = useState(null);
   const [newPlace, setNewPlace] = useState(null);
   const [title, setTitle] = useState(null);
@@ -87,7 +86,7 @@ function App() {
         onViewportChange={(viewport) => setViewport(viewport)}
         onDblClick={currentUsername && handleAddClick}
       >
-        {itemsPin.map((p) => (  
+        {pins.map((p) => (  
           <>
             <Marker
               latitude={p.lat}
